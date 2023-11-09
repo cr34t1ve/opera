@@ -424,7 +424,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"opera/Preview Content\"";
-				DEVELOPMENT_TEAM = 54SBJ7369F;
+				DEVELOPMENT_TEAM = H9G5R2H964;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = opera/Info.plist;
@@ -439,7 +439,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.desmondsofua.opera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andykwesi.opera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -455,7 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"opera/Preview Content\"";
-				DEVELOPMENT_TEAM = 54SBJ7369F;
+				DEVELOPMENT_TEAM = H9G5R2H964;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = opera/Info.plist;
@@ -470,7 +470,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.desmondsofua.opera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andykwesi.opera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

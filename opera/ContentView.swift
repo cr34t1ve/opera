@@ -18,29 +18,34 @@ struct Item: Identifiable, Hashable {
 struct ContentView: View {
     @State var songs = [Item]()
     
+    var searchRequest = MusicCatalogSearchRequest(
+      term: "Hello",
+      types: [
+        Artist.self,
+        Album.self,
+        Song.self
+      ]
+    )
+    
+
+    
+    let searchResponse = try await searchRequest.response()
+    
+ 
+
+    
     var body: some View {
         NavigationView {
-            List(songs) {song in
-                HStack {
-                    AsyncImage(url: song.imageUrl)
-                        .frame(width: 75, height: 75, alignment: .center)
-                    VStack(alignment: .leading) {
-                        Text (song.name)
-                            .font(.title3)
-                        Text (song.artist)
-                            .font(.footnote)
-                    }
-                    .padding()
-                }
-            }
-        }
-        .onAppear{
-            fetchMusic()
         }
     }
     
-    private let request: MusicCatalogSearchRequest = {
-        var request = MusicCatalogSearchRequest (term: "Happy", types: [Song.self])
+    // Loading catalog search top results
+
+    
+//    print("\(searchResponse.topResults)")
+//    
+    private let request: MusicLibrarySearchRequest = {
+        var request = MusicLibrarySearchRequest (term: "Happy", types: [Song.self])
         request.limit = 25
         return request
     }()
