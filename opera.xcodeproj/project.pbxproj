@@ -44,6 +44,7 @@
 		923357282AFC8BAE00EE4D7F /* operaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = operaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9233572C2AFC8BAE00EE4D7F /* operaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = operaUITests.swift; sourceTree = "<group>"; };
 		9233572E2AFC8BAE00EE4D7F /* operaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = operaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9233573B2AFC94FB00EE4D7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +95,7 @@
 		923357102AFC8BAC00EE4D7F /* opera */ = {
 			isa = PBXGroup;
 			children = (
+				9233573B2AFC94FB00EE4D7F /* Info.plist */,
 				923357112AFC8BAC00EE4D7F /* operaApp.swift */,
 				923357132AFC8BAC00EE4D7F /* ContentView.swift */,
 				923357152AFC8BAD00EE4D7F /* Assets.xcassets */,
@@ -425,6 +427,8 @@
 				DEVELOPMENT_TEAM = 54SBJ7369F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = opera/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Please allow access access to continue";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +458,8 @@
 				DEVELOPMENT_TEAM = 54SBJ7369F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = opera/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Please allow access access to continue";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
