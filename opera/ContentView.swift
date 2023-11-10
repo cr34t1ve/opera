@@ -69,13 +69,13 @@ struct ContentView: View {
                 }
                 
             case .notDetermined:
-                print("Not determined")
+                print(String("here"))
             case .denied:
-                print("Denied")
+                print(String("here"))
             case .restricted:
-                print("Restricted")
+                print(String("here"))
             @unknown default:
-                print("Unknown status")
+                print(String("here"))
             }
         }
     }
