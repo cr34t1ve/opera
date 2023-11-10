@@ -18,70 +18,65 @@ struct Item: Identifiable, Hashable {
 struct ContentView: View {
     @State var songs = [Item]()
     
-    var searchRequest = MusicCatalogSearchRequest(
-      term: "Hello",
-      types: [
-        Artist.self,
-        Album.self,
-        Song.self
-      ]
+    @State var searchRequest = MusicCatalogSearchRequest(
+        term: "Hello",
+        types: [
+            Artist.self,
+            Album.self,
+            Song.self
+        ]
     )
-    
 
-    
-    let searchResponse = try await searchRequest.response()
-    
- 
 
-    
     var body: some View {
         NavigationView {
+           
         }
     }
     
-    // Loading catalog search top results
-
     
-//    print("\(searchResponse.topResults)")
-//    
     private let request: MusicLibrarySearchRequest = {
-        var request = MusicLibrarySearchRequest (term: "Happy", types: [Song.self])
+        var request = MusicLibrarySearchRequest(term: "Happy", types: [Song.self])
         request.limit = 25
         return request
     }()
-    
+
+    // Loading catalog search top results
     private func fetchMusic() {
         Task {
-            
-        
-        // Request permission
-        let status = await MusicAuthorization.request()
+            // Request permission
+            let status = await MusicAuthorization.request()
             switch status {
             case .authorized:
-                // Request -> Response
                 do {
-                    let result = try await request.response()
+                    // Request -> Response
+                    searchRequest.includeTopResults = true
+                    let searchResponse = try await searchRequest.response()
+                    print("\(searchResponse.topResults)")
+
                     
+                    
+                    let result = try await request.response()
+
                     // Assign songs
                     self.songs = result.songs.compactMap({
                         return .init(name: $0.title, artist: $0.artistName, imageUrl: $0.artwork?.url(width: 75, height: 75))
                     })
-                    
+
                     print(String(describing: songs[0]))
                 } catch {
                     print(String(describing: error))
                 }
                 
             case .notDetermined:
-                print(String("here"))
+                print("Not determined")
             case .denied:
-                print(String("here"))
+                print("Denied")
             case .restricted:
-                print(String("here"))
+                print("Restricted")
             @unknown default:
-                print(String("here"))
+                print("Unknown status")
             }
-            
         }
     }
 }
@@ -89,3 +84,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
