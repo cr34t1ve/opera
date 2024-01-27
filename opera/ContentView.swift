@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MusicKit
+import MediaPlayer
 
 struct Item: Identifiable, Hashable {
     var id = UUID()
@@ -27,10 +28,47 @@ struct ContentView: View {
         ]
     )
 
+    @State var nowPlaying: MPMediaItem?
+
 
     var body: some View {
         NavigationView {
-           
+             VStack {
+        if let nowPlaying = nowPlaying {
+            Image(uiImage: nowPlaying.artwork?.image(at: CGSize(width: 200, height: 200)) ?? UIImage())
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+                .cornerRadius(5)
+            Text("Now Playing: \(nowPlaying.title ?? "Unknown Song")")
+                .font(.headline)
+                .padding()
+        }}
+            List(songs) { song in
+                HStack {
+                    if let url = song.imageUrl {
+                        AsyncImage(url: url) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 75, height: 75)
+                                .cornerRadius(5)
+                        } placeholder: {
+                            ProgressView()
+                        }
+                    }
+                    VStack(alignment: .leading) {
+                        Text(song.name)
+                            .font(.headline)
+                        Text(song.artist)
+                            .font(.subheadline)
+                    }
+                }
+            }
+            .navigationTitle("Songs from Apple")
+        }
+        .onAppear {
+            nowPlaying = getCurrentlyPlayingSong()
         }
     }
     
@@ -78,6 +116,11 @@ struct ContentView: View {
                 print(String("here"))
             }
         }
+    }
+
+    func getCurrentlyPlayingSong() -> MPMediaItem? {
+        let musicPlayer = MPMusicPlayerController.systemMusicPlayer
+        return musicPlayer.nowPlayingItem
     }
 }
 
